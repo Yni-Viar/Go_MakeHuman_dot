@@ -1,0 +1,90 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://hs3v5baictan"
+path="res://.godot/imported/body.glb-979f22f2f4f5e1f7d069611ff22a7776.scn"
+
+[deps]
+
+source_file="res://char_edit/meshs4gen/body.glb"
+dest_files=["res://.godot/imported/body.glb-979f22f2f4f5e1f7d069611ff22a7776.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=0
+meshes/lightmap_texel_size=0.1
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=15
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"meshes": {
+"body_123_Dress_mini_03": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://char_edit/meshs4gen/dress_mini_03.mesh",
+"save_to_file/path": "uid://duss24sdmytug"
+},
+"body_Character_generator_base_Body": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://char_edit/meshs4gen/body.mesh",
+"save_to_file/path": "uid://b6orxy3cwcmjf"
+},
+"body_Character_generator_base_Low-poly": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://char_edit/meshs4gen/eyes.mesh",
+"save_to_file/path": "uid://bfbvu38bmkmx5"
+},
+"body_male_jeans": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://char_edit/meshs4gen/male_jeans_01.mesh",
+"save_to_file/path": "uid://ddqw1t5cx3qgm"
+},
+"body_male_shirt": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://char_edit/meshs4gen/male_shirt_01.mesh",
+"save_to_file/path": "uid://b2drgp3n4rhuw"
+}
+}
+}
+gltf/naming_version=0
+gltf/embedded_image_handling=1

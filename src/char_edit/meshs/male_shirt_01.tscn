@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d046grconpiti"]
+
+[ext_resource type="ArrayMesh" uid="uid://dl2u8pbr0raoc" path="res://char_edit/meshs/male_shirt_01.mesh" id="1"]
+[ext_resource type="Material" path="res://char_edit/meshs/mats/male_jeans_shirt_01.tres" id="2"]
+
+[node name="male_shirt_01" type="MeshInstance3D"]
+mesh = ExtResource("1")
+surface_material_override/0 = ExtResource("2")

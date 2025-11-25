@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://41mkaa72rwnl"]
+
+[ext_resource type="Script" uid="uid://rlp2g4utulf" path="res://char_edit/scripts/slider.gd" id="1_ubhqo"]
+
+[node name="Label" type="Label"]
+offset_right = 96.0
+offset_bottom = 33.0
+text = "fat
+"
+script = ExtResource("1_ubhqo")
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_top = 18.0
+offset_right = 97.0
+offset_bottom = 34.0
+max_value = 1.0
+step = 0.01
+ticks_on_borders = true
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]

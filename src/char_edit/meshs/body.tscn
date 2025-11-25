@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkqupch2ssai8"]
+
+[ext_resource type="ArrayMesh" uid="uid://dm26irnj3s28s" path="res://char_edit/meshs/body.mesh" id="2"]
+[ext_resource type="Material" uid="uid://sg58vfavie8e" path="res://char_edit/meshs/mats/woman.tres" id="2_i3qb6"]
+
+[node name="body" type="MeshInstance3D"]
+mesh = ExtResource("2")
+surface_material_override/0 = ExtResource("2_i3qb6")

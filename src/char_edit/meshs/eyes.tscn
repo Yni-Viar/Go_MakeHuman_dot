@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cum5kecyruqtj"]
+
+[ext_resource type="ArrayMesh" uid="uid://3mknlsy5autn" path="res://char_edit/meshs/eyes.mesh" id="1"]
+[ext_resource type="Texture2D" uid="uid://btbepy4l3enew" path="res://char_edit/meshs/mats/brown_eye.png" id="2_113xb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7bbgu"]
+albedo_texture = ExtResource("2_113xb")
+
+[node name="eyes" type="MeshInstance3D"]
+mesh = ExtResource("1")
+surface_material_override/0 = SubResource("StandardMaterial3D_7bbgu")

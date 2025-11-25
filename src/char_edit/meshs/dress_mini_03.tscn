@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg6qb62tlx5w2"]
+
+[ext_resource type="ArrayMesh" uid="uid://cxm36548qkqso" path="res://char_edit/meshs/dress_mini_03.mesh" id="1"]
+[ext_resource type="Material" path="res://char_edit/meshs/mats/dress_mini_03.tres" id="2"]
+
+[node name="dress_mini_03" type="MeshInstance3D"]
+mesh = ExtResource("1")
+surface_material_override/0 = ExtResource("2")

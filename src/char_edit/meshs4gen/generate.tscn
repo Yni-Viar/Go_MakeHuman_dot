@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuo2uwtsljymq"]
+
+[ext_resource type="Script" uid="uid://yjddx6s3ncdr" path="res://char_edit/scripts/generate.gd" id="1_ve7gn"]
+
+[node name="generate" type="Node"]
+script = ExtResource("1_ve7gn")
+cloth_array = ["male_jeans_01", "male_shirt_01", "dress_mini_03", "eyes"]

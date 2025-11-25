@@ -1,7 +1,7 @@
 # Go_MakeHuman_dot
 ingame character generator for godot (based on the project Makehuman)
 
-This project for blender 2.79 and Godot.
+This project for Blender and Godot 4.
 This contain basics *.blend-files with shapes and skeleton and another stuff, include tutorials in the future.
 
 I solved a big problem with the size of the mesh in the video memory. Previously, each character required a separate bag with all the blendshapes.
@@ -39,6 +39,15 @@ https://www.youtube.com/watch?v=ljK_FErSPQM
 How add shapekey for clothes.
 https://www.youtube.com/watch?v=OnZy3m6Yksk
 
-3. Generation face from photo (i learn python, maybe 2-5 years, maybe never)
+# License
+## Godot project
 
 Public Domain or CC-by-zero.
+
+*Yni Viar's edit: I think they meant CC0 license - added a CC0 license to the project*
+
+## Human skin shader
+
+There are two components from 2 authors:
+- HumanShaders [(MIT License)](./src/char_edit/meshs/mats/materials/LICENSE_HumanShaders)
+- GdCharacterCreation [(MIT License)](./src/char_edit/meshs/mats/materials/LICENSE_GdCharacterCreation)
