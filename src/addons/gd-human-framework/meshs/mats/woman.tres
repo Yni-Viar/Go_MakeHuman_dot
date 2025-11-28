@@ -1,8 +1,9 @@
-[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://sg58vfavie8e"]
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://sg58vfavie8e"]
 
 [ext_resource type="Shader" uid="uid://dptf72gp6xbq8" path="res://addons/gd-human-framework/meshs/mats/materials/skin_shader.gdshader" id="1_wic63"]
-[ext_resource type="Texture2D" uid="uid://b10o7enff0ltl" path="res://addons/gd-human-framework/meshs/mats/young_lightskinned_female_diffuse2.jpg" id="3_a2ev3"]
+[ext_resource type="Texture2D" uid="uid://dqjpglrx7qem1" path="res://addons/gd-human-framework/meshs/mats/young_lightskinned_female_skin_shader_mask.png" id="2_v33ny"]
 [ext_resource type="Texture2D" uid="uid://q081egd4y1v" path="res://addons/gd-human-framework/meshs/mats/materials/MicroDetail/skin_micro_nrm_ao.png" id="3_t7a7m"]
+[ext_resource type="Texture2D" uid="uid://cf7hoxmb36by" path="res://addons/gd-human-framework/meshs/mats/young_lightskinned_female_diffuse.png" id="3_v33ny"]
 [ext_resource type="Texture2D" uid="uid://mr50jbfp4doc" path="res://addons/gd-human-framework/meshs/mats/human_female_body_sss.png" id="4_0n5pb"]
 [ext_resource type="Texture2D" uid="uid://d28htgdgv762y" path="res://addons/gd-human-framework/meshs/mats/materials/translucency_gradient.tres" id="5_wic63"]
 
@@ -10,7 +11,7 @@
 render_priority = 0
 shader = ExtResource("1_wic63")
 shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = ExtResource("3_a2ev3")
+shader_parameter/texture_albedo = ExtResource("3_v33ny")
 shader_parameter/roughness = 0.4
 shader_parameter/specular = 0.5
 shader_parameter/double_specularity = true
@@ -22,6 +23,7 @@ shader_parameter/micro_detail_scale = 153.44800728878
 shader_parameter/micro_normal_strength = 0.3
 shader_parameter/micro_ao_strength = 0.4
 shader_parameter/texture_micro_detail = ExtResource("3_t7a7m")
+shader_parameter/micro_normal_mask = ExtResource("2_v33ny")
 shader_parameter/use_ambient_occlusion = false
 shader_parameter/ao_strength = 0.5
 shader_parameter/ao_block_light = 0.5

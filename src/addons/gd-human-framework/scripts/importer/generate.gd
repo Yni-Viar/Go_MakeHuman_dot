@@ -17,15 +17,16 @@ func import_meshes():
 	for i in range(mesh_arrs.get_blend_shape_count ()):
 		shp_name_index[mesh_arrs.get_blend_shape_name(i)] = i
 	var blends = mesh_arrs.surface_get_blend_shape_arrays(0)
-	var fingernails_mesh_arrs = mesh_arrs.surface_get_arrays(2)
-	var toenails_mesh_arrs = mesh_arrs.surface_get_arrays(1)
+	
 	mesh_arrs = mesh_arrs.surface_get_arrays(0)
 	
 	var mesh: ArrayMesh = ArrayMesh.new()
-	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,mesh_arrs)
-	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,toenails_mesh_arrs)
-	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,fingernails_mesh_arrs)
+	for i in range(shp_name_index.size()):
+		mesh.add_blend_shape(shp_name_index.keys()[i])
+		mesh.blend_shape_mode = Mesh.BLEND_SHAPE_MODE_NORMALIZED
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,mesh_arrs, blends)
 	ResourceSaver.save(mesh,"res://addons/gd-human-framework/meshs/body.mesh",32)
+	
 	var base_form = mesh_arrs[Mesh.ARRAY_VERTEX]
 	var vertex_UV = mesh_arrs[Mesh.ARRAY_TEX_UV]
 	for i in range(len(blends)):

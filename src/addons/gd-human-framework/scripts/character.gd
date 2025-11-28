@@ -16,15 +16,15 @@ func _ready():
 	take_on_clothes("body")
 	take_on_clothes("eyes")
 
-func generate_mesh(mesh_inst: MeshInstance3D):
-	reset_mesh(mesh_inst)
+func generate_mesh(mesh_inst: MeshInstance3D, is_body: bool = false):
+	reset_mesh(mesh_inst, is_body)
 	var vertex_arr=mesh_inst.mesh.surface_get_arrays(0)[Mesh.ARRAY_VERTEX]
 	for shape_name in appearance:
 		var shp_indx = CharEditGlobal.meshs_shapes[mesh_inst.name]["shp_name_index"]
 		if shp_indx.keys().has(shape_name):
 			shp_indx = shp_indx[shape_name]
 			vertex_arr = update_vertex(mesh_inst,vertex_arr,shp_indx,appearance[shape_name])
-	save_mesh(mesh_inst,vertex_arr)
+	save_mesh(mesh_inst,vertex_arr, is_body)
 
 func generate_all_meshs():
 	var time= Time.get_ticks_msec( )
@@ -33,8 +33,8 @@ func generate_all_meshs():
 		generate_mesh(mesh_inst)
 	print (Time.get_ticks_msec( )-time)
 	
-func reset_mesh(mesh_inst: MeshInstance3D):
-	save_mesh(mesh_inst,CharEditGlobal.meshs_shapes[mesh_inst.name]["base_form"])
+func reset_mesh(mesh_inst: MeshInstance3D, is_body: bool = false):
+	save_mesh(mesh_inst,CharEditGlobal.meshs_shapes[mesh_inst.name]["base_form"], is_body)
 
 func update_vertex(mesh_inst,vertex_arr,shp_indx,value):
 	var blend = CharEditGlobal.meshs_shapes[mesh_inst.name]["blendshapes"][shp_indx]
@@ -42,19 +42,26 @@ func update_vertex(mesh_inst,vertex_arr,shp_indx,value):
 		vertex_arr[i] += blend[i]*value
 	return vertex_arr
 
-func save_mesh(mesh_inst: MeshInstance3D, vertex_arr):
-	var mat_arr: Array[Material] = []
-	var mat_count: int = mesh_inst.mesh.get_surface_count()
-	print(mat_count)
-	var mesh_arrs: Array[Array] = []
-	for i in range(mat_count):
-		mat_arr.append(mesh_inst.get_surface_override_material(i))
-		mesh_arrs.append(mesh_inst.mesh.surface_get_arrays(i))
+func save_mesh(mesh_inst: MeshInstance3D, vertex_arr, is_body: bool = false):
+	var mat = mesh_inst.get_surface_override_material(0)
+	var mesh_arrs = mesh_inst.mesh.surface_get_arrays(0)
+	var blend_shape = null
+	var shp_name_index: Dictionary = {}
+	if is_body:
+		blend_shape = mesh_inst.mesh.surface_get_blend_shape_arrays(0)
+		for i in range(mesh_inst.mesh.get_blend_shape_count ()):
+			shp_name_index[mesh_inst.mesh.get_blend_shape_name(i)] = i
 	mesh_arrs[Mesh.ARRAY_VERTEX] = vertex_arr
 	mesh_inst.mesh = ArrayMesh.new()
-	for i in range(mat_count):
-		mesh_inst.mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,mesh_arrs[i])
-		mesh_inst.set_surface_override_material(i,mat_arr[i])
+	if is_body:
+		for i in range(shp_name_index.size()):
+			mesh_inst.mesh.add_blend_shape(shp_name_index.keys()[i])
+			mesh_inst.mesh.blend_shape_mode = Mesh.BLEND_SHAPE_MODE_NORMALIZED
+		mesh_inst.mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,mesh_arrs, blend_shape)
+	else:
+		mesh_inst.mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,mesh_arrs)
+	mesh_inst.set_surface_override_material(0,mat)
+	
 
 func update_morph(shape_name,value):
 	var temp = value;
@@ -95,4 +102,4 @@ func take_on_clothes(cloth: String):
 	$skeleton.add_child(take_cloth)
 	if Engine.is_editor_hint():
 		take_cloth.owner = get_tree().edited_scene_root
-	generate_mesh(take_cloth)
+	generate_mesh(take_cloth, cloth == "body")

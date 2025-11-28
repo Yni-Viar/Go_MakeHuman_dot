@@ -39,6 +39,7 @@ uniform float micro_normal_strength : hint_range(-1.0, 1.0) = 0.3;
 uniform float micro_ao_strength : hint_range(-1.0, 1.0) = 0.4;
 uniform sampler2D texture_micro_detail : hint_roughness_normal, filter_linear_mipmap_anisotropic, repeat_enable;
 //uniform float soften_normal : hint_range(0.0, 1.0);
+uniform sampler2D micro_normal_mask: hint_default_white;
 
 group_uniforms ambient_occlusion;
 uniform bool use_ambient_occlusion = false;
@@ -64,6 +65,7 @@ uniform float translucency_strength : hint_range(0.0, 2.0, 0.01) = 0.75;
 uniform sampler2D texture_translucency : hint_default_white, filter_linear_mipmap, repeat_enable;
 uniform sampler2D texture_translucency_color : source_color, filter_linear, repeat_disable;
 
+
 group_uniforms u_v;
 uniform vec3 uv1_scale = vec3(1.);
 uniform vec3 uv1_offset = vec3(0.);
@@ -78,6 +80,7 @@ varying float ao;
 varying float linear_depth;
 varying float smooth_depth;
 varying float sss_tex;
+varying vec3 micro_mask_tmp;
 
 void vertex() {
 	UV = UV * uv1_scale.xy + uv1_offset.xy;
@@ -105,6 +108,7 @@ vec3 custom_normal(vec3 normal_map){
 }
 
 void fragment() {
+	micro_mask_tmp = texture(micro_normal_mask, UV).rgb;
 	vec2 base_uv = UV;
 	TBN = mat3(TANGENT, -BINORMAL, NORMAL);
 
@@ -130,8 +134,8 @@ void fragment() {
 
 	float micro_overlay = mix(0.5, micro_detail.b, micro_ao_strength * 2.);
 	vec4 albedo_tex = texture(texture_albedo, base_uv);
-	if (use_micro_detail){
-		albedo_tex = vec4(overlay(albedo_tex.rgb, vec3(micro_overlay)), albedo_tex.w);
+	if (use_micro_detail && micro_mask_tmp.r > 0.9){
+		albedo_tex = vec4(overlay(albedo_tex.rgb, vec3(micro_overlay * micro_mask_tmp)), albedo_tex.w);
 	}
 
 	final_albedo = albedo.rgb * albedo_tex.rgb;
@@ -156,11 +160,13 @@ void fragment() {
 	ROUGHNESS = clamp(roughness_tex * roughness, 0.,1.);
 
 	// Normal Map: Enabled
-	vec3 micro_normal = mix(vec3(.5,.5,1.), vec3(micro_detail.xy, 1.), micro_normal_strength);
+	vec3 micro_normal = mix(vec3(.5,.5,1.), vec3(micro_detail.xy * micro_mask_tmp.xy, 1.), micro_normal_strength);
 
 	//Normal Map (For Specular):
 	vec3 normal_final = texture(texture_normal, base_uv).rgb;
-	normal_final = normal_blending(normal_final, micro_normal);
+	if (use_micro_detail && micro_mask_tmp.r > 0.9){
+		normal_final = normal_blending(normal_final, micro_normal * micro_mask_tmp);
+	}
 	NORMAL_MAP = normal_final;
 	NORMAL_MAP_DEPTH = normal_strength;
 
@@ -241,11 +247,12 @@ void light()
 		vec3 dn_b = custom_normal(textureLod(texture_normal, UV, (0.7*s) * normal_depth).rgb);
 		
 		//Include micro normals in the mix:
-		vec3 m_normal = texture(texture_micro_detail, UV * micro_detail_scale).rgb;
-		m_normal = mix(vec3(.5,.5,1.), vec3(m_normal.xy, 1.), micro_normal_strength);
-		
-		dn_g = normal_blending(dn_g, m_normal);
-		dn_b = normal_blending(dn_b, m_normal);
+		if (use_micro_detail && micro_mask_tmp.r > 0.9) {
+			vec3 m_normal = texture(texture_micro_detail, UV * micro_detail_scale).rgb;
+			m_normal = mix(vec3(.5,.5,1.), vec3(m_normal.xy, 1.), micro_normal_strength);
+			dn_g = normal_blending(dn_g, m_normal);
+			dn_b = normal_blending(dn_b, m_normal);
+		}
 		////
 		
 		float sf = skin_fallof_smoothness;
