@@ -15,9 +15,9 @@ func _ready() -> void:
 
 func set_item(item: String, value: bool):
 	if value:
-		get_tree().edited_scene_root.take_on_clothes(item)
+		get_tree().edited_scene_root.get_child(0).take_on_clothes(item)
 	else:
-		get_tree().edited_scene_root.take_off_clothes(item)
+		get_tree().edited_scene_root.get_child(0).take_off_clothes(item)
 
 func _on_clothes_select_close_requested() -> void:
 	if !Engine.is_editor_hint():

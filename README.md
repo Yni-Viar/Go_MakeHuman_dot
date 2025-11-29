@@ -1,6 +1,6 @@
 # GD-Human-Framework
 
-Godot Human generator.
+Godot Human generator for Godot 4.5 (tested) and higher.
 
 Based on MakeHuman assets.
 
@@ -11,15 +11,18 @@ Based on MakeHuman assets.
 1. Add `res://addons/gd-human-framework/scripts/char_edit_global.gd` as global autoload with name `CharEditGlobal`, otherwise plugin won't work properly.
 2. Enable the plugin.
 
+### How to create a character.
+
+After enabling the plugin (v0.0.2 and higher), add `HumanCharacter` node to create your human.
+
 ## TODO.
 
 - [ ] Re-add runtime editor front-end.
-- [ ] Instantiate base human instead of simply editing.
 - [ ] Make all custom types toggleable.
 
 ## License:
 
-This project is based on [Go_MakeHuman_dot (see it's readme for advanced asset management)](./README-ORIGINAL.md)
+This project is based on [Go_MakeHuman_dot by Lexpartizan (see it's readme for advanced asset management)](./README-ORIGINAL.md)
 
 ## Godot project
 

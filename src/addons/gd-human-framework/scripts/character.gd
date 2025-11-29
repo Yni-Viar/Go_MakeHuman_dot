@@ -6,12 +6,6 @@ var appearance: Dictionary={}
 
 @export var body_parts: Dictionary[String, bool] = {}
 
-func _enter_tree() -> void:
-	CharEditGlobal.clothes_button.show()
-
-func _exit_tree() -> void:
-	CharEditGlobal.clothes_button.hide()
-
 func _ready():
 	take_on_clothes("body")
 	take_on_clothes("eyes")

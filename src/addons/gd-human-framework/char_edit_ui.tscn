@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://onupwf4ixmvh" path="res://addons/gd-human-framework/scripts/char_edit_ui.gd" id="1_n6yna"]
 [ext_resource type="PackedScene" uid="uid://41mkaa72rwnl" path="res://addons/gd-human-framework/morph_slider.tscn" id="2_ce0r4"]
-[ext_resource type="PackedScene" uid="uid://cp35j8fasvyql" path="res://addons/gd-human-framework/scripts/editor/clothes_select.tscn" id="3_k4852"]
+[ext_resource type="PackedScene" uid="uid://cp35j8fasvyql" path="res://addons/gd-human-framework/technical/editor/clothes_select.tscn" id="3_k4852"]
 
 [sub_resource type="GDScript" id="GDScript_n6yna"]
 script/source = "extends Camera3D

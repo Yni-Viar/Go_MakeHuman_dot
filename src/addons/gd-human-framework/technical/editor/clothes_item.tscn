@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dcrlrhguv2jvi"]
 
-[ext_resource type="Script" uid="uid://r7x1a8l2b780" path="res://addons/gd-human-framework/scripts/editor/clothes_item_select.gd" id="1_20yr4"]
+[ext_resource type="Script" uid="uid://r7x1a8l2b780" path="res://addons/gd-human-framework/technical/editor/clothes_item_select.gd" id="1_20yr4"]
 
 [node name="Item" type="HBoxContainer"]
 script = ExtResource("1_20yr4")

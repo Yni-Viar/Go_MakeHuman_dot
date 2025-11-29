@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dc61cv6xegpep"]
 
-[ext_resource type="PackedScene" uid="uid://cp35j8fasvyql" path="res://addons/gd-human-framework/scripts/editor/clothes_select.tscn" id="1_ia6jd"]
+[ext_resource type="PackedScene" uid="uid://cp35j8fasvyql" path="res://addons/gd-human-framework/technical/editor/clothes_select.tscn" id="1_ia6jd"]
 
 [node name="ClothesSelect" type="Window"]
 oversampling_override = 1.0

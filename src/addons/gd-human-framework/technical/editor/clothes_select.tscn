@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cp35j8fasvyql"]
 
-[ext_resource type="Script" uid="uid://8okavjlvhhdo" path="res://addons/gd-human-framework/scripts/editor/clothes_select.gd" id="1_1yi3n"]
+[ext_resource type="Script" uid="uid://8okavjlvhhdo" path="res://addons/gd-human-framework/technical/editor/clothes_select.gd" id="1_1yi3n"]
 
 [node name="ClothesSelect" type="Control"]
 custom_minimum_size = Vector2(320, 200)

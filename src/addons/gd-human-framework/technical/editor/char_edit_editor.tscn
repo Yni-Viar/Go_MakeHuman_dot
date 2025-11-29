@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cyce3ft2rsva2"]
 
-[ext_resource type="Script" uid="uid://c2abhxqcgaoqy" path="res://addons/gd-human-framework/scripts/editor/char_edit_editor.gd" id="1_026s4"]
+[ext_resource type="Script" uid="uid://c2abhxqcgaoqy" path="res://addons/gd-human-framework/technical/editor/char_edit_editor.gd" id="1_026s4"]
 [ext_resource type="PackedScene" uid="uid://41mkaa72rwnl" path="res://addons/gd-human-framework/morph_slider.tscn" id="2_ewccf"]
-[ext_resource type="PackedScene" uid="uid://cp35j8fasvyql" path="res://addons/gd-human-framework/scripts/editor/clothes_select.tscn" id="3_ob1fj"]
+[ext_resource type="PackedScene" uid="uid://cp35j8fasvyql" path="res://addons/gd-human-framework/technical/editor/clothes_select.tscn" id="3_ob1fj"]
 
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(0, 240)

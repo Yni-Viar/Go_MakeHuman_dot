@@ -134,7 +134,7 @@ func _process(delta: float) -> void:
 		if CharEditGlobal.clothes_button.is_visible_in_tree() && !editor_visible:
 			editor_visible = true
 			if !import:
-				character = get_tree().edited_scene_root
+				character = get_tree().edited_scene_root.get_child(0)
 		elif !CharEditGlobal.clothes_button.is_visible_in_tree() && editor_visible:
 			editor_visible = false
 			if !import:
