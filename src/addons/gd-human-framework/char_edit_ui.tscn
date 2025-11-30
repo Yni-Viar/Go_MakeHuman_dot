@@ -55,13 +55,12 @@ func _on_reset_view_pressed():
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(0, 240)
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 1.0
-offset_bottom = -479.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 script = ExtResource("1_n6yna")
 
 [node name="random_gen" type="Button" parent="."]
@@ -168,12 +167,10 @@ columns = 8
 [node name="fat" parent="morphs/Body/GridContainer" instance=ExtResource("2_ce0r4")]
 layout_mode = 2
 text = "fat"
-vertex_groups = PackedColorArray()
 
 [node name="zombie" parent="morphs/Body/GridContainer" instance=ExtResource("2_ce0r4")]
 layout_mode = 2
 text = "zombie"
-vertex_groups = PackedColorArray()
 
 [node name="armfat" parent="morphs/Body/GridContainer" instance=ExtResource("2_ce0r4")]
 layout_mode = 2
@@ -188,22 +185,18 @@ vertex_groups = PackedColorArray(0, 0, 1, 1, 0, 1, 1, 1)
 [node name="woman1" parent="morphs/Body/GridContainer" instance=ExtResource("2_ce0r4")]
 layout_mode = 2
 text = "woman1"
-vertex_groups = PackedColorArray()
 
 [node name="woman2" parent="morphs/Body/GridContainer" instance=ExtResource("2_ce0r4")]
 layout_mode = 2
 text = "woman2"
-vertex_groups = PackedColorArray()
 
 [node name="man" parent="morphs/Body/GridContainer" instance=ExtResource("2_ce0r4")]
 layout_mode = 2
 text = "man"
-vertex_groups = PackedColorArray()
 
 [node name="skinny" parent="morphs/Body/GridContainer" instance=ExtResource("2_ce0r4")]
 layout_mode = 2
 text = "skinny"
-vertex_groups = PackedColorArray()
 
 [node name="muscle" parent="morphs/Body/GridContainer" instance=ExtResource("2_ce0r4")]
 layout_mode = 2
@@ -223,12 +216,10 @@ vertex_groups = PackedColorArray(0, 0, 1, 1, 0, 1, 1, 1)
 [node name="old" parent="morphs/Body/GridContainer" instance=ExtResource("2_ce0r4")]
 layout_mode = 2
 text = "old"
-vertex_groups = PackedColorArray()
 
 [node name="child" parent="morphs/Body/GridContainer" instance=ExtResource("2_ce0r4")]
 layout_mode = 2
 text = "child"
-vertex_groups = PackedColorArray()
 
 [node name="pregnancy" parent="morphs/Body/GridContainer" instance=ExtResource("2_ce0r4")]
 layout_mode = 2

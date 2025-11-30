@@ -105,7 +105,7 @@ func _on_random_gen_pressed():
 	reset_tab_slider($morphs/Eyes/GridContainer.get_children(),character.appearance)
 	
 func _on_print_pressed():
-	$tips.text=str(character.appearance)
+	print(character.appearance)
 
 func set_intensity(value):
 	randomize_intensity = value

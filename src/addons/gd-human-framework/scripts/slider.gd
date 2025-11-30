@@ -9,4 +9,3 @@ func set_slider(value):
 
 func _on_h_slider_value_changed(value: float) -> void:
 	get_parent().get_parent().get_parent().get_parent().change_morph(text, value)
-	print("1")

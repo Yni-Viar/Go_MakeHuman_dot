@@ -15,9 +15,11 @@ Based on MakeHuman assets.
 
 After enabling the plugin (v0.0.2 and higher), add `HumanCharacter` node to create your human.
 
+Alternatively, you can run game (v0.1.0 and higher) for customizing a human
+
 ## TODO.
 
-- [ ] Re-add runtime editor front-end.
+- [ ] Add support for baking blend shapes.
 - [ ] Make all custom types toggleable.
 
 ## License:
